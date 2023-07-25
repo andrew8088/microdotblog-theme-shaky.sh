@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-{{ partial "head.html" . }}
-<body class="max-w-2xl mx-auto px-2 md:px-0 dark:bg-slate-950">
-  <h1 class="
-    text-5xl
-    text-center
-    text-transparent
-    font-extrabold
-    my-8
-  "
-  > <a class="
-    bg-gradient-to-r
-    from-blue-400
-    to-violet-400
-    hover:from-violet-400
-    hover:to-blue-400
-    bg-clip-text
-  " href='/'> shaky.sh </a></h1>
+  {{ partial "head.html" . }}
+  <body class="max-w-2xl mx-auto px-2 md:px-0 dark:bg-slate-950">
+    <h1 class="text-5xl text-center text-transparent font-extrabold my-8">
+      <a
+        class="bg-gradient-to-r from-blue-400 to-violet-400 hover:from-violet-400 hover:to-blue-400 bg-clip-text"
+        href="/"
+      >
+        shaky.sh
+      </a>
+    </h1>
 
-  <section id="wrapper" {{ if eq .File.Dir "about/" }} class="bio" {{ end }}>
-	{{ block "main" . }}{{ end }}
-  </section>
-  {{ partial "footer.html" . }}
-  {{ partial "custom_footer.html" . }}
-		{{ range .Site.Params.plugins_js }}
-			<script src="{{ . }}"></script>
-		{{ end }}
-</body>
+    <article
+      class="prose prose-lg dark:prose-invert prose-a:font-normal prose-a:no-underline prose-a:text-blue-400 visited:prose-a:text-violet-400 hover:prose-a:text-sky-300 before:prose-code:content-[''] after:prose-code:content-[''] prose-code:bg-sky-200 dark:prose-code:bg-sky-600 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-h1:text-3xl prose-h2:text-2xl prose-h2:mt-3 prose-h2:mb-1 prose-li:my-0"
+    >
+      {{content | safe }}
+    </article>
+
+    <footer class="footer">
+      <ul
+        class="flex text-lg bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent p-0 mt-20 mx-24 justify-around flex-col text-center sm:flex-row"
+      >
+        <li class="m-0 p-0">
+          <a class="hover:text-sky-300" href="/about"> about </a>
+        </li>
+        <li class="m-0 p-0">
+          <a class="hover:text-sky-300" href="/cheat"> cheatsheet </a>
+        </li>
+        <li class="m-0 p-0">
+          <a class="hover:text-sky-300" href="/feed.xml"> rss </a>
+        </li>
+        <li class="m-0 p-0">
+          <a class="hover:text-sky-300" href="{{youtubeUrl}}"> youtube </a>
+        </li>
+        <li class="m-0 p-0">
+          <a class="hover:text-sky-300" href="https://micro.shaky.sh">
+            micro
+          </a>
+        </li>
+      </ul>
+      <p
+        class="dark:text-gray-50 text-gray-950 text-sm text-center my-12"
+        onclick="toggleMono()"
+      >
+        &copy; 2023 Andrew Burgess
+      </p>
+      <div id="tooltip-wrapper" class="group relative py-8 w-3/5 m-auto">
+        <div
+          id="tooltip"
+          class="bg-gradient-to-r from-violet-400 to-blue-400 font-mono rounded-tl-3xl rounded-tr-3xl rounded-br-3xl p-4 hidden group-hover:block absolute right-0 top-0"
+        >
+          hi AT shaky.sh
+        </div>
+        <a href="/about">
+          <img
+            class="bg-gradient-to-r from-blue-400 to-violet-400 rounded-full p-1 w-16 m-auto"
+            src="/assets/avatar.webp"
+            class="sidekick avatar"
+            id="hover-target"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
 </html>
