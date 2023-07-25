@@ -1,18 +1,20 @@
-<li>
-<article class="h-entry pt-3 pl-0 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+<li class="list-none m-0 p-0 border-b-2 pb-8 mb-5 last:border-b-0">
+<article class="h-entry pt-3 pl-0 flex flex-col-reverse sm:flex-row sm:justify-between">
   {{ if .Title }}
   <section class="post-body">
-  <header>
-	<h2><a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a></h2>
-  </header>
-  <section class="post-body e-content">
-	{{ .Content }}
-  </section>
+    <header>
+	  <h2><a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a></h2>
+    </header>
+    <section class="post-body e-content prose prose-lg dark:prose-invert prose-a:font-normal prose-a:no-underline prose-a:text-blue-400 visited:prose-a:text-violet-400 hover:prose-a:text-sky-300 before:prose-code:content-[''] after:prose-code:content-[''] prose-code:bg-sky-200 dark:prose-code:bg-sky-600 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-h1:text-3xl prose-h2:text-2xl prose-h2:mt-3 prose-h2:mb-1 prose-li:my-0">
+	  {{ .Content }}
+    </section>
   </section>
   {{ else }}
-	<div class="post-body e-content">{{ .Content }}</div>
+	<div class="post-body e-content prose prose-lg dark:prose-invert prose-a:font-normal prose-a:no-underline prose-a:text-blue-400 visited:prose-a:text-violet-400 hover:prose-a:text-sky-300 before:prose-code:content-[''] after:prose-code:content-[''] prose-code:bg-sky-200 dark:prose-code:bg-sky-600 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-h1:text-3xl prose-h2:text-2xl prose-h2:mt-3 prose-h2:mb-1 prose-li:my-0">
+	  {{ .Content }}
+	</div>
   {{ end }}
-  <a href="{{ .Permalink }}" class="u-url text-sm m-0">
+  <a href="{{ .Permalink }}" class="u-url text-sm m-0 mt-1 sm:ml-4 w-max whitespace-nowrap">
 	<aside class="dates">
 	  <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" class="dt-published">
 
@@ -29,9 +31,11 @@
 	    {{ else }}
 	      {{ .Date.Format "Jan 2006" }}
 	    {{ end }}
+	    <span class="text-blue-400">
+	    ∞
+	    </span>
 	  </time>
 	</aside>
   </a>
 </article>
 </li>
-<span class="separator"><span class="divider"></span></span>
