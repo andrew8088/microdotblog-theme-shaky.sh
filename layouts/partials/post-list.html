@@ -1,4 +1,4 @@
-<ul id="post-list" class="h-feed">
+<ul id="post-list" class="h-feed list-none m-0 p-0 flex flex-col">
 
 {{ if or .IsHome .Site.Params.paginate_categories }}
 	{{ $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") }}

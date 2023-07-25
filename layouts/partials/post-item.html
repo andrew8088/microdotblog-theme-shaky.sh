@@ -1,5 +1,5 @@
 <li>
-<article class="h-entry">
+<article class="h-entry pt-3 pl-0 flex flex-col sm:flex-row sm:justify-between sm:items-center">
   {{ if .Title }}
   <section class="post-body">
   <header>
@@ -12,9 +12,24 @@
   {{ else }}
 	<div class="post-body e-content">{{ .Content }}</div>
   {{ end }}
-  <a href="{{ .Permalink }}" class="u-url">
+  <a href="{{ .Permalink }}" class="u-url text-sm m-0">
 	<aside class="dates">
-	  <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" class="dt-published">→ {{ .Date.Format "3:04 PM, Jan 2" }}</time>
+	  <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" class="dt-published">
+
+	    {{ $day_in_sec :=  86400 }}
+	    {{ $week_in_sec := 604800 }}
+	    {{ $month_in_sec := 2592000 }}
+
+	    {{ if (gt (add .Date.Unix $day_in_sec) (time now)) }}
+	      {{ .Date.Format "15:04" }}
+	    {{ else if (gt (add .Date.Unix $week_in_sec) (time now)) }}
+	      {{ .Date.Format "Jan 02" }}
+	    {{ else if (gt (add .Date.Unix $month_in_sec) (time now)) }}
+	      {{ .Date.Format "Jan 02" }}
+	    {{ else }}
+	      {{ .Date.Format "Jan 2006" }}
+	    {{ end }}
+	  </time>
 	</aside>
   </a>
 </article>
