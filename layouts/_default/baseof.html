@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 {{ partial "head.html" . }}
-<body>
-  {{ partial "header.html" . }}
+<body class="max-w-2xl mx-auto px-2 md:px-0 dark:bg-slate-950">
+  <h1 class="
+    text-5xl
+    text-center
+    text-transparent
+    font-extrabold
+    my-8
+  "
+  > <a class="
+    bg-gradient-to-r
+    from-blue-400
+    to-violet-400
+    hover:from-violet-400
+    hover:to-blue-400
+    bg-clip-text
+  " href='/'> shaky.sh </a></h1>
+
   <section id="wrapper" {{ if eq .File.Dir "about/" }} class="bio" {{ end }}>
 	{{ block "main" . }}{{ end }}
   </section>
