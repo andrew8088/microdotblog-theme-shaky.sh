@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.microblog_conversation {
+  @apply text-base mt-10 bg-blue-50 p-4 dark:bg-slate-900;
+}
+
+.microblog_post {
+  @apply pt-4;
+}
+
+.microblog_user {
+  @apply flex flex-row mb-1 dark:text-slate-300;
+}
+
+.microblog_avatar {
+  @apply rounded-full self-center mr-1;
+}
+
+.microblog_text {
+  @apply text-sm prose dark:prose-invert;
+}
+
+.microblog_time {
+  @apply text-xs text-right dark:text-slate-300;
+}
